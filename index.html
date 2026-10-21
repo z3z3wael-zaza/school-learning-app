@@ -9,11 +9,11 @@
     * { box-sizing: border-box; }
 
     body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f2f6fc;
-      color: #183153;
-    }
+  margin: 0;
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-color);
+}
 
     header {
       background: #173b67;
@@ -22,8 +22,21 @@
       text-align: center;
     }
 
-    header h1 { margin: 0 0 10px; }
-    header p { margin: 0; line-height: 1.8; }
+    header h1 {
+  margin: 0 0 12px;
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+    header p {
+  margin: 0;
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.9;
+}
 
     main {
       max-width: 900px;
@@ -32,12 +45,16 @@
     }
 
     .welcome {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      margin-bottom: 22px;
-      line-height: 1.9;
-    }
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 26px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  line-height: 1.9;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
 
     .subjects {
       display: grid;
@@ -46,18 +63,36 @@
     }
 
     .subject {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      border: 1px solid #dce6f2;
-    }
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    .subject h2 { font-size: 20px; }
+.subject:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px var(--shadow-color);
+}
 
+    .subject h2 {
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 12px;
+  color: var(--accent-color);
+}
     .subject p {
-      color: #52657d;
-      line-height: 1.8;
-    }
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--muted-color);
+  line-height: 1.9;
+  margin: 0;
+}
 
     footer {
       text-align: center;
@@ -118,6 +153,48 @@ header {
 
 .subject p,
 footer {
+  color: var(--muted-color);
+}
+
+    .theme-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  color: #e8f2ff;
+  font-size: 16px;
+}
+
+.theme-control select {
+  font: inherit;
+  color: var(--text-color);
+  background: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+
+.theme-control select:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+    .welcome h2 {
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 14px;
+  color: var(--text-color);
+}
+    .welcome p {
+  font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 2;
+  margin: 0;
   color: var(--muted-color);
 }
   </style>
