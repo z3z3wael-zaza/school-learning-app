@@ -12,29 +12,193 @@
       font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
     }
 
+    :root {
+      color-scheme: light;
+      --page-bg: #f3f7fc;
+      --card-bg: #ffffff;
+      --header-bg: #10243e;
+      --text-color: #183153;
+      --muted-color: #52657d;
+      --accent-color: #075985;
+      --border-color: #dce6f2;
+      --shadow-color: rgba(16, 36, 62, 0.08);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --page-bg: #0b1220;
+      --card-bg: #142238;
+      --header-bg: #080f1c;
+      --text-color: #e8f2ff;
+      --muted-color: #a9bad0;
+      --accent-color: #38bdf8;
+      --border-color: #293c56;
+      --shadow-color: rgba(0, 0, 0, 0.25);
+    }
+
     body {
       margin: 0;
-      background: #f3f7fc;
-      color: #183153;
-      line-height: 1.9;
+      background: var(--page-bg);
+      color: var(--text-color);
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     header {
-      background: #10243e;
+      background: var(--header-bg);
       color: white;
+      padding: 28px 16px;
       text-align: center;
-      padding: 30px 16px;
-      border-bottom: 4px solid #075985;
+      border-bottom: 3px solid var(--accent-color);
     }
 
     header h1 {
       margin: 0 0 10px;
-      font-size: clamp(26px, 4vw, 38px);
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.5;
     }
 
     header p {
       margin: 0;
       font-size: 18px;
+      line-height: 1.8;
     }
 
-    main
+    main {
+      max-width: 1000px;
+      margin: 28px auto;
+      padding: 0 16px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .welcome,
+    .grade-card {
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 24px var(--shadow-color);
+    }
+
+    .welcome h2,
+    .grade-card h2 {
+      margin-top: 0;
+      color: var(--accent-color);
+      font-size: 24px;
+      line-height: 1.6;
+    }
+
+    .welcome p,
+    .grade-card p {
+      color: var(--muted-color);
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .grades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .grade-card {
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 12px;
+      color: var(--muted-color);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 22px 14px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      main {
+        margin: 20px auto;
+        padding: 0 12px;
+      }
+
+      .welcome,
+      .grade-card {
+        padding: 20px;
+      }
+
+      .grades {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>الميكانيكا</h1>
+    <p>نفهم القوانين ونطبقها على المسائل العملية</p>
+  </header>
+
+  <main>
+    <a class="back-link" href="index.html">← العودة إلى الصفحة الرئيسية</a>
+
+    <section class="welcome">
+      <h2>أهلًا بيك في قسم الميكانيكا</h2>
+      <p>
+        هنا هتلاقي محتوى الميكانيكا للتعليم الفني الصناعي،
+        من شرح القوانين والمفاهيم الأساسية إلى الأمثلة المحلولة
+        والتدريبات العملية.
+      </p>
+    </section>
+
+    <section class="grades">
+      <article class="grade-card">
+        <h2>📘 ميكانيكا الصف الأول</h2>
+        <p>
+          شرح الدروس والقوانين الأساسية، مع أمثلة محلولة
+          وتدريبات تساعدك على الفهم والتطبيق.
+        </p>
+        <p>المحتوى التفصيلي قيد الإعداد.</p>
+      </article>
+
+      <article class="grade-card">
+        <h2>📗 ميكانيكا الصف الثاني</h2>
+        <p>
+          مراجعة المفاهيم والقوانين، وحل المسائل
+          والتطبيقات المرتبطة بالمنهج.
+        </p>
+        <p>المحتوى التفصيلي قيد الإعداد.</p>
+      </article>
+
+      <article class="grade-card">
+        <h2>📙 ميكانيكا الصف الثالث</h2>
+        <p>
+          تنظيم موضوعات المنهج، وشرح التطبيقات
+          العملية والتدريب على المسائل.
+        </p>
+        <p>المحتوى التفصيلي قيد الإعداد.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    إعداد أ. وائل عبد الستار أحمد
+  </footer>
+</body>
+</html>
