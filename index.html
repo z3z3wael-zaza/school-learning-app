@@ -64,12 +64,77 @@
       padding: 24px;
       color: #52657d;
     }
+
+    /* تصميم تكنولوجي - ألوان الوضع النهاري */
+:root {
+  color-scheme: light;
+  --page-bg: #f3f7fc;
+  --card-bg: #ffffff;
+  --header-bg: #10243e;
+  --text-color: #183153;
+  --muted-color: #52657d;
+  --accent-color: #38bdf8;
+  --border-color: #dce6f2;
+  --shadow-color: rgba(16, 36, 62, 0.08);
+}
+
+/* الوضع الليلي */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #0b1220;
+  --card-bg: #142238;
+  --header-bg: #080f1c;
+  --text-color: #e8f2ff;
+  --muted-color: #a9bad0;
+  --accent-color: #38bdf8;
+  --border-color: #293c56;
+  --shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+/* تطبيق الألوان على الصفحة */
+body {
+  background: var(--page-bg);
+  color: var(--text-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+header {
+  background: var(--header-bg);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.welcome,
+.subject {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 24px var(--shadow-color);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.subject h2 {
+  color: var(--accent-color);
+}
+
+.subject p,
+footer {
+  color: var(--muted-color);
+}
   </style>
 </head>
 <body>
   <header>
     <h1>منصة وائل زعزع التعليمية</h1>
-    <p>نتعلم اليوم لنصنع مستقبلًا أفضل</p>
+<p>نتعلم اليوم لنصنع مستقبلًا أفضل</p>
+
+    <div class="theme-control">
+      <label for="theme-select">مظهر الصفحة:</label>
+      <select id="theme-select">
+        <option value="auto">⚙️ تلقائي</option>
+        <option value="light">☀️ نهاري</option>
+        <option value="dark">🌙 ليلي</option>
+      </select>
+    </div>
   </header>
 
   <main>
@@ -100,7 +165,41 @@
   </main>
 
   <footer>
-    إعداد أ. وائل عبد الستار
+     إعداد أ. وائل عبد الستار أحمد
   </footer>
+
+  <script>
+(function () {
+  const selector = document.getElementById("theme-select");
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem("wael-theme") || "auto";
+
+  function applyTheme(theme) {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const actualTheme = theme === "auto"
+      ? (prefersDark ? "dark" : "light")
+      : theme;
+
+    root.setAttribute("data-theme", actualTheme);
+    selector.value = theme;
+    localStorage.setItem("wael-theme", theme);
+  }
+
+  applyTheme(savedTheme);
+
+  selector.addEventListener("change", function () {
+    applyTheme(selector.value);
+  });
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener(
+    "change",
+    function () {
+      if (selector.value === "auto") {
+        applyTheme("auto");
+      }
+    }
+  );
+})();
+</script>
 </body>
 </html>
