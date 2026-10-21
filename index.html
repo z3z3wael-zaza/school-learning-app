@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة وائل التعليمية</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f2f6fc;
+      color: #183153;
+    }
+
+    header {
+      background: #173b67;
+      color: white;
+      padding: 28px 16px;
+      text-align: center;
+    }
+
+    header h1 { margin: 0 0 10px; }
+    header p { margin: 0; line-height: 1.8; }
+
+    main {
+      max-width: 900px;
+      margin: 28px auto;
+      padding: 0 16px;
+    }
+
+    .welcome {
+      background: white;
+      padding: 22px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+      line-height: 1.9;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+    }
+
+    .subject {
+      background: white;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid #dce6f2;
+    }
+
+    .subject h2 { font-size: 20px; }
+
+    .subject p {
+      color: #52657d;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #52657d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>منصة وائل زعزع التعليمية</h1>
+    <p>نتعلم اليوم لنصنع مستقبلًا أفضل</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>أهلًا بيك في منصتنا التعليمية</h2>
+      <p>
+        منصة تعليمية لتبسيط الدروس وتنظيم المحتوى
+        ومساعدة الطلاب على التعلم بطريقة سهلة.
+      </p>
+    </section>
+
+    <section class="subjects">
+      <article class="subject">
+        <h2>📐 الرياضيات</h2>
+        <p>دروس وتمارين في الرياضيات التطبيقية والميكانيكا.</p>
+      </article>
+
+      <article class="subject">
+        <h2>⚡ الكهرباء</h2>
+        <p>مفاهيم الكهرباء وأجهزة القياس والتطبيقات العملية.</p>
+      </article>
+
+      <article class="subject">
+        <h2>💻 الحاسب الآلي</h2>
+        <p>مبادئ الحاسب والتكنولوجيا والمهارات الرقمية.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    إعداد أ. وائل عبد الستار
+  </footer>
+</body>
+</html>
