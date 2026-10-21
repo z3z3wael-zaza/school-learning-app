@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الرياضيات التطبيقية والميكانيكا | منصة وائل التعليمية</title>
+  <title>الرياضيات التطبيقية | منصة وائل التعليمية</title>
 
   <style>
     * {
@@ -11,83 +12,120 @@
       font-family: Calibri, "Segoe UI", Tahoma, Arial, sans-serif;
     }
 
+    :root {
+      color-scheme: light;
+      --page-bg: #f3f7fc;
+      --card-bg: #ffffff;
+      --header-bg: #10243e;
+      --text-color: #183153;
+      --muted-color: #52657d;
+      --accent-color: #075985;
+      --border-color: #dce6f2;
+      --shadow-color: rgba(16, 36, 62, 0.08);
+    }
+
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --page-bg: #0b1220;
+      --card-bg: #142238;
+      --header-bg: #080f1c;
+      --text-color: #e8f2ff;
+      --muted-color: #a9bad0;
+      --accent-color: #38bdf8;
+      --border-color: #293c56;
+      --shadow-color: rgba(0, 0, 0, 0.25);
+    }
+
     body {
       margin: 0;
-      background: #f3f7fc;
-      color: #183153;
-      line-height: 1.9;
+      background: var(--page-bg);
+      color: var(--text-color);
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     header {
-      background: #10243e;
+      background: var(--header-bg);
       color: white;
+      padding: 28px 16px;
       text-align: center;
-      padding: 30px 16px;
-      border-bottom: 4px solid #075985;
+      border-bottom: 3px solid var(--accent-color);
     }
 
     header h1 {
       margin: 0 0 10px;
-      font-size: clamp(26px, 4vw, 38px);
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.5;
     }
 
     header p {
       margin: 0;
       font-size: 18px;
+      line-height: 1.8;
     }
 
     main {
-      max-width: 950px;
+      max-width: 1000px;
       margin: 28px auto;
       padding: 0 16px;
     }
 
-    .welcome,
-    .lesson {
-      background: white;
-      padding: 24px;
-      margin-bottom: 20px;
-      border: 1px solid #dce6f2;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(16, 36, 62, 0.07);
-    }
-
-    h2 {
-      color: #075985;
-      margin-top: 0;
-    }
-
-    .lesson-link {
-      display: inline-block;
-      background: #075985;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 8px;
-    }
-
-    .lesson-link:hover {
-      background: #064568;
-    }
-
     .back-link {
       display: inline-block;
-      color: #075985;
-      font-weight: bold;
-      text-decoration: none;
       margin-bottom: 20px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: var(--accent-color);
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .welcome,
+    .grade-card {
+      background: var(--card-bg);
+      color: var(--text-color);
+      padding: 24px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 8px 24px var(--shadow-color);
+    }
+
+    .welcome h2,
+    .grade-card h2 {
+      margin-top: 0;
+      color: var(--accent-color);
+      font-size: 24px;
+      line-height: 1.6;
+    }
+
+    .welcome p,
+    .grade-card p {
+      color: var(--muted-color);
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    .grades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .grade-card {
+      margin-bottom: 0;
     }
 
     footer {
       text-align: center;
-      padding: 22px 12px;
-      color: #52657d;
+      padding: 24px 12px;
+      color: var(--muted-color);
     }
 
     @media (max-width: 600px) {
       header {
-        padding: 24px 14px;
+        padding: 22px 14px;
       }
 
       header p {
@@ -100,9 +138,12 @@
       }
 
       .welcome,
-      .lesson {
-        padding: 18px;
-        border-radius: 14px;
+      .grade-card {
+        padding: 20px;
+      }
+
+      .grades {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -110,30 +151,40 @@
 
 <body>
   <header>
-    <h1>الرياضيات التطبيقية والميكانيكا</h1>
-    <p>نفهم القوانين ونطبقها في الحياة العملية</p>
+    <h1>الرياضيات التطبيقية</h1>
+    <p>نفهم القوانين ونحل المسائل خطوة بخطوة</p>
   </header>
 
   <main>
-    <a class="back-link" href="index.html">→ العودة إلى الصفحة الرئيسية</a>
+    <a class="back-link" href="index.html">← العودة إلى الصفحة الرئيسية</a>
 
     <section class="welcome">
-      <h2>أهلًا بيك في مادة الرياضيات</h2>
+      <h2>أهلًا بيك في قسم الرياضيات</h2>
       <p>
-        هنا هتلاقي الدروس والشروحات والأمثلة العملية والتدريبات
-        الخاصة بالرياضيات التطبيقية والميكانيكا للتعليم الفني الصناعي.
+        هنا هتلاقي محتوى الرياضيات للتعليم الفني الصناعي،
+        مع شرح المفاهيم والقوانين، وأمثلة محلولة،
+        وتدريبات تساعدك على الفهم والتطبيق العملي.
       </p>
     </section>
 
-    <section class="lesson">
-      <h2>📘 الدروس التعليمية</h2>
-      <p>هنضيف هنا الدروس مرتبة حسب المنهج الدراسي.</p>
-      <p>محتوى الدروس قيد الإعداد.</p>
-    </section>
+    <section class="grades">
+      <article class="grade-card">
+        <h2>📘 رياضيات الصف الأول</h2>
+        <p>
+          شرح موضوعات المنهج بالتدريج، مع توضيح القوانين
+          وخطوات حل المسائل والأمثلة التطبيقية.
+        </p>
+        <p>المحتوى التفصيلي قيد الإعداد.</p>
+      </article>
 
-    <section class="lesson">
-      <h2>📝 التدريبات والمسائل</h2>
-      <p>هنخصص القسم ده للمسائل التطبيقية والتدريبات على كل درس.</p>
+      <article class="grade-card">
+        <h2>📗 رياضيات الصف الثاني</h2>
+        <p>
+          مراجعة موضوعات المنهج، وفهم القوانين،
+          والتدرب على المسائل والأمثلة المحلولة.
+        </p>
+        <p>المحتوى التفصيلي قيد الإعداد.</p>
+      </article>
     </section>
   </main>
 
